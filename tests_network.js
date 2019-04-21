@@ -234,7 +234,21 @@ suite("Test Journey objects", function(){
     }); //END OF COPY FUNCTION TESTS
 
     suite('Test incDistance function', function(){
-
+        test('Incementing distance greater than 1', function(){
+            journeyA.distance = 50;
+            journeyA.incDistance(25);
+            assert(journeyA.distance === 75, "Incremented distance +25");
+        });
+        test('Incementing distance 1', function(){
+            journeyA.distance = 0;
+            journeyA.incDistance(1);
+            assert(journeyA.distance === 1, 'Incremented distance by 1');
+        });
+        test('Increment negative distance', function(){
+            journeyB.distance = 50;
+            journeyB.incDistance(-50);
+            assert(journeyB.distance === 50, "Didn't increment negative distance");
+        });
     }); //END OF incDistance FUNCTION
 
     suite('Test report function', function(){
@@ -245,98 +259,81 @@ suite("Test Journey objects", function(){
 /** A test suite to test network object **/
 suite('Test Network object', function(){
     /** Test fixtures for networkA **/
-    graphA = null;
     originA = null;
     destinationA = null;
     max_resultsA = null;
-    routesFoundA = null;
-    journiesFoundA = null;
     fileNameA  = null;
     
     /** Test Fixtures for networkB **/
-    graphB = null;
     originB = null;
     destinationB = null;
     max_resultsB = null;
-    routesFoundB = null;
-    journiesFoundB = null;
     fileNameB = null;
 
     /** Test fixtures for networkC **/
-    graphC = null;
     originC = null;
     destinationC = null;
     max_resultsC = null;
-    routesFoundC = null;
-    journiesFoundC = null;
     fileNameC = null;
 
     /** Test Fixtures for networkD **/
-    graphD = null;
     originD = null;
     destinationD = null;
     max_resultsD = null;
-    routesFoundD = null;
-    journiesFoundD = null;
     fileNameD = null;
 
     /** Test Fixtures for networkE **/
-    graphE = null;
     originE = null;
     destinationE = null;
     max_resultsE = null;
-    routesFoundE = null;
-    journiesFoundE = null;
     fileNameE = null;
 
     /**Called as the suite begins, useful for setting up objects **/
     suiteSetup(function(){
         /**Setting up fixture A **/
-
-
-
+        fileName = simpleton_railway.json
+        originA = "Alphaville";
+        destinationA = "Betaford";
+        max_results = 1;
         /** Setting up fixture B **/
-
-
-
+        fileNameB = notional_ra.json
+        originB = "Central";
+        destinationB = "Chester";
+        max_result = 2;
         /** Setting up fixture C **/
-
-
-
+        fileNameC = simpleton_railway.json;
+        originC = "Deltafield";
+        destinationC = "Alphaville"; 
+        max_results = 1;
     });
 
     /**Called before each unit test to set up fixtures **/
     setup(function(){
         /** Setting up fixture D **/
-
-
-
-
+        fileNameD = null;
+        originD = "Alphaville";
+        destinationD = "Betaford";
+        max_results = 2;
         /** Setting up fixture E **/
-
-
-
+        fileNameE = smokey_mountain.json;
+        originE = "Bryson City";
+        destinationE = null;
+        max_results = 2;
 
     });
 
     /** Called after each unit tests to reset objects **/
     teardown(function(){
         /** tearing down fixtures **/
-        graphD = null;
         originD = null;
         destinationD = null;
         max_resultsD = null;
-        routesFoundD = null;
-        journiesFoundD = null;
         fileNameD = null;
 
         /** tearing down fixtures **/
-        graphE = null;
         originE = null;
         destinationE = null;
         max_resultsE = null;
-        routesFoundE = null;
-        journiesFoundE = null;
         fileNameE = null;
 
     });
@@ -344,33 +341,46 @@ suite('Test Network object', function(){
     /**Called as the test suite ends to teardown remaining objects **/
     suiteTeardown(function(){
         /**Tearing down remaining fixtures **/
-        graphA = null;
         originA = null;
         destinationA = null;
         max_resultsA = null;
-        routesFoundA = null;
-        journiesFoundA = null;
         fileNameA = null;
 
         /** Tearing down remaining fixtures **/
-        graphB = null;
         originB = null;
         destinationB = null;
         max_resultsB = null;
-        routesFoundB = null;
-        journiesFoundB = null;
         fileNameB = null;
 
         /** Tearing down remaining fixtures **/
-        graphC = null;
         originC = null;
         destinationC = null;
         max_resultsC = null;
-        routesFoundC = null;
-        journiesFoundC = null;
         fileNameC = null;
 
     });
 
     /** BELOW HERE ARE THE UNIT TESTS **/
+    suite('Unit tests for network function', function(){
+
+
+    }); //END OF TESTS FOR NETWORK FUNCTION
+
+    suite('Unit tests for getBestRoute1', function(){
+
+
+    }); //END OF TESTS FOR GETBESTROUTES1
+
+    suite('Unit test for displayRoute function', function(){
+
+
+    }); //END OF TESTS FORDISPLAYROUTE
+
+    suite("Unit test for doGetBestRoutes", function(){
+
+
+    }); //END OF TESTS FOR DOGETBESTROUTES
+});// END OF NETWORK FILE UNIT TESTS
+
+    
 
