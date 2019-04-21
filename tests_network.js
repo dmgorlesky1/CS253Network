@@ -178,15 +178,21 @@ suite("Test Journey objects", function(){
 
     /** Called as test suite begins, sets up fixtures **/
     suiteSetup(function(){
-        journeyA;
-        journeyB;
-        journeyC;
+        journeyA = new Journey.Journey();
+        journeyB = new Journey.Journey();
+        journeyC = new Journey.Journey();
     });
 
     /** Called before each unit test to set up fixtures **/
     setup(function(){
-        journeyD;
-        journeyE;
+        journeyD = new Journey.Journey();
+        journeyD.stations = "Alphaville","Betaford";
+        journeyD.distance = 50;
+        journeyD.text = "";
+        journeyD.success = true;
+        journeyD.changes = "Simpleton Line";
+
+        journeyE = new Journey.Journey();
     });
 
     /** Called after each test suite to tear down objects **/
@@ -204,11 +210,27 @@ suite("Test Journey objects", function(){
 
     //BELOW HERE THE UNIT TESTS BEGIN
     suite('Tests for Journey Objects', function(){
-        
+        test('Test new Journey Object', function(){
+            assert(journeyA.stations === null, 'null stations');
+            assert(journeyA.distance === null, 'distance is null');
+            assert(journeyA.text === null, 'Test is null');
+            assert(journeyA.success === false, 'Success is false');
+            assert(journeyA.changes === null, 'Changes is null');
+        });
     }); //END OF JOURNEY OBJECT TESTS
 
     suite('Test copy function', function(){
-
+        test('Test the copying of Journey', function(){
+            journeyE = journeyD.copy();
+            assert(journeyE.stations.includes(journeyD.stations), "Journey E includes journey D stations");
+            assert(journeyD.stations.includes(journeyE.stations),
+                "Journey D includes journey E stations");
+            assert(journeyD.distance === journeyE.distance, "Distance is the smae");
+            assert(journeyD.text === journeyE.text, "Text is the same");
+            assert(journeyD.success == journeyE.success, "Success is the same");
+            assert(journeyD.changes.includes(journeyE.changes), "Journey E has Journey E cahgnes");
+            assert(journeyE.changes.includes(journeyD.changes), "Journey D has Journey D changes");
+        });
     }); //END OF COPY FUNCTION TESTS
 
     suite('Test incDistance function', function(){
@@ -220,4 +242,135 @@ suite("Test Journey objects", function(){
     }); //END OF REPORT FUNCTION TESTS
 }); //END OF JOURNEY TEST SUITE
 
+/** A test suite to test network object **/
+suite('Test Network object', function(){
+    /** Test fixtures for networkA **/
+    graphA = null;
+    originA = null;
+    destinationA = null;
+    max_resultsA = null;
+    routesFoundA = null;
+    journiesFoundA = null;
+    fileNameA  = null;
+    
+    /** Test Fixtures for networkB **/
+    graphB = null;
+    originB = null;
+    destinationB = null;
+    max_resultsB = null;
+    routesFoundB = null;
+    journiesFoundB = null;
+    fileNameB = null;
+
+    /** Test fixtures for networkC **/
+    graphC = null;
+    originC = null;
+    destinationC = null;
+    max_resultsC = null;
+    routesFoundC = null;
+    journiesFoundC = null;
+    fileNameC = null;
+
+    /** Test Fixtures for networkD **/
+    graphD = null;
+    originD = null;
+    destinationD = null;
+    max_resultsD = null;
+    routesFoundD = null;
+    journiesFoundD = null;
+    fileNameD = null;
+
+    /** Test Fixtures for networkE **/
+    graphE = null;
+    originE = null;
+    destinationE = null;
+    max_resultsE = null;
+    routesFoundE = null;
+    journiesFoundE = null;
+    fileNameE = null;
+
+    /**Called as the suite begins, useful for setting up objects **/
+    suiteSetup(function(){
+        /**Setting up fixture A **/
+
+
+
+        /** Setting up fixture B **/
+
+
+
+        /** Setting up fixture C **/
+
+
+
+    });
+
+    /**Called before each unit test to set up fixtures **/
+    setup(function(){
+        /** Setting up fixture D **/
+
+
+
+
+        /** Setting up fixture E **/
+
+
+
+
+    });
+
+    /** Called after each unit tests to reset objects **/
+    teardown(function(){
+        /** tearing down fixtures **/
+        graphD = null;
+        originD = null;
+        destinationD = null;
+        max_resultsD = null;
+        routesFoundD = null;
+        journiesFoundD = null;
+        fileNameD = null;
+
+        /** tearing down fixtures **/
+        graphE = null;
+        originE = null;
+        destinationE = null;
+        max_resultsE = null;
+        routesFoundE = null;
+        journiesFoundE = null;
+        fileNameE = null;
+
+    });
+
+    /**Called as the test suite ends to teardown remaining objects **/
+    suiteTeardown(function(){
+        /**Tearing down remaining fixtures **/
+        graphA = null;
+        originA = null;
+        destinationA = null;
+        max_resultsA = null;
+        routesFoundA = null;
+        journiesFoundA = null;
+        fileNameA = null;
+
+        /** Tearing down remaining fixtures **/
+        graphB = null;
+        originB = null;
+        destinationB = null;
+        max_resultsB = null;
+        routesFoundB = null;
+        journiesFoundB = null;
+        fileNameB = null;
+
+        /** Tearing down remaining fixtures **/
+        graphC = null;
+        originC = null;
+        destinationC = null;
+        max_resultsC = null;
+        routesFoundC = null;
+        journiesFoundC = null;
+        fileNameC = null;
+
+    });
+
+    /** BELOW HERE ARE THE UNIT TESTS **/
 
