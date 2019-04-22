@@ -76,5 +76,88 @@ suite('Test Railway Object', function(){
             assert(name === 'Simpleton', 'routeName converts to string');
         });
     }); //END OF ROUTENAMETOSTRING
+    
+    suite('Unit tests for getRoute', function(){
+        test('Testing for unknown routeName', function(){
+            let routeName = 'Alphabeta';
+            assert(railway.getRoute(fileNameD, routeName) === null, 'Didnt find route');
+        });
+        test('Testing for known routeName', function(){
+            let routeName = 'Simpleton';
+            assert(railway.getRoute(fileNameD, routeName) === fileNameD.routes[0],
+            'Found correct route info');
+        });
+    }); //END OF GETROUTE TESTS
+
+    suite('Unit tests for route Summary', function(){
+
+
+    }); //END OF TESTS FOR ROUTE SUMMARY
+
+    suite('Unit tests for totalStations', function(){
+        test('Testing simpleton line', function(){
+            let num = 5;
+            assert(railway.totalStations(fileNameD) === num, 'Found total Stations');
+        });
+    }); //END OF TESTS FOR TOTAL STATIONS
+
+    suite('Unit tests for routeDistance', function(){
+        test('Testing simpleton line', function(){
+            let dist = 100;
+            assert(railway.routeDistance(fileNameD) === dist, 'Found total distance');
+        });
+    }); //END POF TESTS FOR ROUTEDISTANCE
+
+    suite('Unit tests for routeToString', function(){
+        test('Testing routeToStringfor simple line', function(){
+            
+        });
+    }); //END OF TESTS FOR ROUTESUMMARY
+    
+    suite('Unit tests for findLongestRoute', function(){
+        test('Testing for simpleton route', function(){
+
+        });
+    });
+
+    suite('Unit tests for addDistances', function(){
+        tests('Testing for distance addition', function(){
+            let dist = 100;
+            assert(railway.addDistances(fileNameD) === dist, 'Added total distance of route');
+        });
+    }); //END OF TESTS FOR ADDDISTANCE
+
+    suite('Unit tests for sortRoutesByName', function){
+        test('Test if asc is false', function(){
+
+
+        });
+        test('Test if asc is true', function(){
+
+
+        });
+    }); //END OF TESTS FORSORTROUTESBYNAME
+    
+    suite('Unit tests for sort', function(){
+        test('Test if a > b', function(){
+            assert(railway.sort(0,1) === -1, 'Sorted correctly');
+        });
+        test('Test if a < b', function(){
+            assert(railway.sort(1,0) === 1, 'Sorted correctly');
+        });
+        test('Test if a=b', function(){
+            assert(railway.sort(1,1) === 0, 'Sorted correctly');
+        });
+    }); //END OF UNIT TESTS FOR SORT
+
+    suite('Unit tests for sortRoutesbtLength', function(){
+        test('Testing if asc is false', function(){
+
+        });
+        test('Testing if asc is true', function(){
+
+        });
+    }); //END OF UNIT TESTS FOR SORTROUTEBYLENGTH
+});
 
 
