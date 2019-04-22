@@ -302,7 +302,7 @@ suite('Test Network object', function(){
         max_result = 2;
         /** Setting up fixture C **/
         fileNameC = simpleton_railway.json;
-        originC = "Deltafield";
+        originC = null;
         destinationC = "Alphaville"; 
         max_results = 1;
     });
@@ -361,15 +361,30 @@ suite('Test Network object', function(){
     });
 
     /** BELOW HERE ARE THE UNIT TESTS **/
-    suite('Unit tests for network function', function(){
+    suite('Unit tests for getBestRoute1 function', function(){
 
 
-    }); //END OF TESTS FOR NETWORK FUNCTION
+    }); //END OF TESTS FOR getBestRoute1 FUNCTION
 
-    suite('Unit tests for getBestRoute1', function(){
-
-
-    }); //END OF TESTS FOR GETBESTROUTES1
+    suite('Unit tests for network', function(){
+        test('Testing network function for a regular file with right stops',
+            function(){
+                assert(main(fileNameA, originA, destinationA, max_resultsA) == 1,
+                "File successfully ran with appropriate values");
+        });
+        test("Testing network function for a corrupt file == null", function(){
+            assert(main(fileNameD, originD, destinationD, max_resultsD) === 1,
+                'Successfully returned if fileName == null');
+        });
+        test('Testing network function for null stop', function(){
+            assert(main(fileNameE, originE, destinationE, max_resultsE) === 0,
+                'Successfully returns if  destination isnt found');
+        });
+        test('Testing network function for null stop', function(){
+            assert(main(fileNameC, originC, destinationC, max_resultsC) === 0,
+                'Successully returns if origin isnt found');
+        });
+    }); //END OF TESTS FOR NETWORK
 
     suite('Unit test for displayRoute function', function(){
 
