@@ -48,3 +48,33 @@ suite('Test Railway Object', function(){
     });
 
     //BELOW ARE THE UNIT TESTS
+
+    suite('Unit tests for loadData', function(){
+        test('Test a null fileName', function(){
+            assert(railway.loadData(fileNameE) === null, 'Null fileName');
+        });
+    }); //END OF TESTS FOR LOAD DATA
+
+    suite('Unit tests for getNetworkName', function(){
+        test('Test for network name', function(){
+            let name = railway.loadData(fileNameD);
+            name = name.networkName;
+            assert(name === "Simpleton Railway System", Gets network Name);
+        });
+    }); //END OF TESTS FOR GETNETWORKNAME
+
+    suite('Unit Tests for getRouteNamess', function(){
+        test('Test a line with one route', function(){
+            let routeNames = railway.getRouteNames(fileNameD);
+            assert(routeNames[0] === "Simpleton", "Gets route names");
+        });
+    }); //END OF TESTS FOR GETROUTENAMES
+
+    suite('Unit tests for routeNamesToString', function(){
+        test('Test with a route of length 1', function(){
+            let name = railway.routeNamesToString(fileNameD);
+            assert(name === 'Simpleton', 'routeName converts to string');
+        });
+    }); //END OF ROUTENAMETOSTRING
+
+
